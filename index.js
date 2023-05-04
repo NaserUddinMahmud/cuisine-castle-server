@@ -15,6 +15,15 @@ app.get('/chefs', (req, res) =>{
     res.send(chefs);
 })
 
+app.get('/chefs/:id', (req, res) =>{
+    const id = parseInt(req.params.id);
+    console.log(id);
+    const selectedChef = chefs.find(n=>parseInt(n.id) === id);
+    res.send(selectedChef)
+})
+
+
+
 app.listen(port, () =>{
     console.log(`CuisineCastle is running on port: ${port}`);
 })
